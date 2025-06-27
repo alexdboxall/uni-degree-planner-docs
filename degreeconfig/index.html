@@ -268,9 +268,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#format-specification" class="md-nav__link">
+  <a href="#example-configuration-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Format Specification
+      Example Configuration File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-format-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Format Specification
     </span>
   </a>
   
@@ -360,9 +369,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#format-specification" class="md-nav__link">
+  <a href="#example-configuration-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Format Specification
+      Example Configuration File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-format-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Format Specification
     </span>
   </a>
   
@@ -415,8 +433,330 @@
 <p>Degree Configuration Files are used to specify information about degrees, such as the default number of years, the default search filters, the valid starting years and semesters, the total unit amounts, and which courses appear in the left sidebar and how they are grouped.</p>
 <p>These configuration files are in JSON format.</p>
 <hr />
-<h2 id="format-specification">Format Specification</h2>
-<p>...</p>
+<h2 id="example-configuration-file">Example Configuration File</h2>
+<pre><code class="language-json">{
+    &quot;degreeCode&quot;: &quot;aacom&quot;,
+    &quot;name&quot;: &quot;Bachelor of Advanced Computing&quot;,
+    &quot;longName&quot;: &quot;Bachelor of Advanced Computing (Honours)&quot;,
+    &quot;defaultUnitsPerCourse&quot;: 6,
+    &quot;defaultYearsInDegree&quot;: 4,
+    &quot;coursesPerTerm&quot;: 5,
+    &quot;defaultTermLayout&quot;: 0,
+    &quot;termLayouts&quot;: [
+        [&quot;Semester 1&quot;, &quot;Semester 2&quot;]
+    ],
+    &quot;maxDegreeUnits&quot;: 192,
+    &quot;displayYearStart&quot;: 1,
+    &quot;search&quot;: {
+        &quot;layout&quot;: [
+            {
+                &quot;undergrad&quot;: &quot;Show undergraduate courses?&quot;,
+                &quot;postgrad&quot;: &quot;Show postgraduate courses?&quot;,
+                &quot;weirdo&quot;: &quot;Show 5000, 7000 and 9000 level courses?&quot;
+            },
+            {
+                &quot;sem1&quot;: &quot;Show semester 1 courses?&quot;,
+                &quot;sem2&quot;: &quot;Show semester 2 courses?&quot;,
+                &quot;seasonal&quot;: &quot;Show seasonal courses?&quot;
+            }
+        ],
+        &quot;selectedByDefault&quot;: [
+            &quot;undergrad&quot;, &quot;sem1&quot;, &quot;sem2&quot;
+        ]
+    },
+    &quot;dropdown&quot;: [
+        {
+            &quot;header&quot;: &quot;Core Requirements&quot;,
+            &quot;name&quot;: &quot;Introductory Programming&quot;,
+            &quot;courses&quot;: [&quot;COMP1100&quot;, &quot;COMP1130&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;Choose one of the below courses&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Structured Programming&quot;,
+            &quot;courses&quot;: [&quot;COMP1110&quot;, &quot;COMP1140&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;Choose one of the below courses&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Mathematics&quot;,
+            &quot;courses&quot;: [&quot;MATH1005&quot;, &quot;MATH2222&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;Choose one of the below courses&quot;,
+            &quot;years&quot;: [2022, 2023, 2024, 2025, 2026]
+        },
+        {
+            &quot;name&quot;: &quot;Transdisciplinary Problem Solving&quot;,
+            &quot;courses&quot;: [&quot;TRANSDISCIPLINARY&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;Select two courses not already part of your degree, from the following&quot;,
+            &quot;years&quot;: [2025, 2026]
+        },
+        {
+            &quot;name&quot;: &quot;Compulsory courses&quot;,
+            &quot;courses&quot;: [&quot;COMP1600&quot;, &quot;COMP2100&quot;, &quot;COMP2300&quot;, &quot;COMP2310&quot;, &quot;COMP2400&quot;, &quot;COMP3600&quot;, &quot;COMP4450&quot;],
+            &quot;showAddAll&quot;: true,
+            &quot;guideString&quot;: &quot;You must take all of these courses&quot;,
+            &quot;years&quot;: [2025, 2026]
+        },
+        {
+            &quot;name&quot;: &quot;Compulsory courses&quot;,
+            &quot;courses&quot;: [&quot;COMP1600&quot;, &quot;COMP2100&quot;, &quot;COMP2120&quot;, &quot;COMP2300&quot;, &quot;COMP2310&quot;, &quot;COMP2420&quot;,
+                &quot;COMP3600&quot;, &quot;COMP4450&quot;],
+            &quot;showAddAll&quot;: true,
+            &quot;guideString&quot;: &quot;You must take all of these courses&quot;,
+            &quot;years&quot;: [2022, 2023, 2024]
+        },
+        {
+            &quot;name&quot;: &quot;Compulsory courses&quot;,
+            &quot;courses&quot;: [&quot;COMP1600&quot;, &quot;COMP2100&quot;, &quot;COMP2120&quot;, &quot;COMP2300&quot;, &quot;COMP2310&quot;, &quot;COMP2420&quot;, &quot;MATH1005&quot;,
+                &quot;COMP3600&quot;, &quot;COMP4450&quot;],
+            &quot;showAddAll&quot;: true,
+            &quot;guideString&quot;: &quot;You must take all of these courses&quot;,
+            &quot;years&quot;: [2019, 2020, 2021]
+        },
+        {
+            &quot;name&quot;: &quot;Honours&quot;,
+            &quot;courses&quot;: [&quot;COMP4550&quot;, &quot;COMP4500&quot;, &quot;COMP4820&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;Choose one of the below courses&quot;,
+            &quot;years&quot;: [2024, 2025, 2026]
+        },
+        {
+            &quot;name&quot;: &quot;Honours&quot;,
+            &quot;courses&quot;: [&quot;COMP4550&quot;, &quot;COMP4810&quot;, &quot;COMP4820&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;Choose one of the below courses&quot;,
+            &quot;years&quot;: [2023]
+        },
+        {
+            &quot;name&quot;: &quot;Honours&quot;,
+            &quot;courses&quot;: [&quot;COMP4550&quot;, &quot;COMP4560&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;Choose one of the below courses&quot;,
+            &quot;years&quot;: [2019, 2020, 2021, 2022]
+        },
+        {
+            &quot;name&quot;: &quot;Elective courses&quot;,
+            &quot;courses&quot;: [&quot;MATH1013&quot;, &quot;MATH1014&quot;, &quot;MATH1115&quot;, &quot;MATH1116&quot;, &quot;MATH2301&quot;, &quot;ENGN1211&quot;, &quot;STAT1003&quot;, &quot;STAT1008&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;These courses may count towards your degree in place of a COMP elective.&quot;,
+            &quot;years&quot;: [2025, 2026]
+        },
+        {
+            &quot;name&quot;: &quot;Elective courses&quot;,
+            &quot;courses&quot;: [&quot;MATH1013&quot;, &quot;MATH1014&quot;, &quot;MATH1115&quot;, &quot;MATH1116&quot;, &quot;MATH2301&quot;, &quot;ENGN1211&quot;, &quot;STAT1003&quot;, &quot;STAT1008&quot;, &quot;VCUG3001&quot;, &quot;ENGN3230&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: &quot;These courses may count towards your degree in place of a COMP elective.&quot;
+        },
+        {
+            &quot;header&quot;: &quot;Specialisations&quot;,
+            &quot;name&quot;: &quot;Artificial Intelligence&quot;,
+            &quot;courses&quot;: [&quot;COMP2620&quot;, &quot;COMP3620&quot;, &quot;COMP4620&quot;, &quot;COMP4691&quot;],
+            &quot;showAddAll&quot;: true,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please select all 4 courses.&quot;,
+            &quot;years&quot;: [2018, 2019, 2020, 2021, 2022, 2023, 2024]
+        },
+        {
+            &quot;header&quot;: &quot;Specialisations&quot;,
+            &quot;name&quot;: &quot;Artificial Intelligence&quot;,
+            &quot;courses&quot;: [&quot;COMP2620&quot;, &quot;COMP3620&quot;, &quot;COMP4620&quot;, &quot;COMP4691&quot;],
+            &quot;showAddAll&quot;: true,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please select all 4 courses.&quot;,
+            &quot;years&quot;: [2025, 2026]
+        },
+        {
+            &quot;name&quot;: &quot;Machine Learning&quot;,
+            &quot;courses&quot;: [&quot;COMP3670&quot;, &quot;COMP4650&quot;, &quot;COMP4660&quot;, &quot;COMP4670&quot;, &quot;COMP4680&quot;, &quot;ENGN4528&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please select 4 of the below courses.&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Human-Centred and Creative Computing&quot;,
+            &quot;courses&quot;: [&quot;COMP3900&quot;, &quot;COMP4350&quot;, &quot;COMP4528&quot;, &quot;COMP4610&quot;, &quot;COMP3540&quot;, &quot;COMP3670&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please select COMP3900, one of COMP3540 or COMP3670, and 2 others.&quot;,
+            &quot;years&quot;: [2025, 2026]
+        },
+        {
+            &quot;name&quot;: &quot;Human-Centred and Creative Computing&quot;,
+            &quot;courses&quot;: [&quot;COMP3900&quot;, &quot;COMP3540&quot;, &quot;COMP4350&quot;, &quot;COMP4610&quot;, &quot;COMP4660&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please select COMP3900 and 3 others.&quot;,
+            &quot;years&quot;: [2023, 2024]
+        },
+        {
+            &quot;name&quot;: &quot;Systems and Architecture&quot;,
+            &quot;courses&quot;: [&quot;COMP2400&quot;, &quot;COMP3300&quot;, &quot;COMP3310&quot;, &quot;COMP3320&quot;, &quot;COMP3610&quot;, &quot;COMP4300&quot;, &quot;COMP4330&quot;, &quot;COMP4340&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please select two 4000 level courses, and 2 others.&quot;,
+            &quot;years&quot;: [2018, 2019, 2020, 2021, 2022, 2023]
+        },
+        {
+            &quot;name&quot;: &quot;Systems and Architecture&quot;,
+            &quot;courses&quot;: [&quot;COMP4045&quot;, &quot;COMP4300&quot;, &quot;COMP4712&quot;, &quot;COMP2400&quot;, &quot;COMP3300&quot;, &quot;COMP3310&quot;, &quot;COMP3320&quot;,&quot;COMP3610&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please elect two of COMP4045, COMP4300 and COMP4712; and then any two more.&quot;,
+            &quot;years&quot;: [2024]
+        },
+        {
+            &quot;name&quot;: &quot;Systems and Architecture&quot;,
+            &quot;courses&quot;: [&quot;COMP4045&quot;, &quot;COMP4300&quot;, &quot;COMP4712&quot;, &quot;COMP3300&quot;, &quot;COMP3310&quot;, &quot;COMP3320&quot;,&quot;COMP3610&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please elect two of COMP4045, COMP4300 and COMP4712; and then any two more.&quot;,
+            &quot;years&quot;: [2025, 2026]
+        },
+        {
+            &quot;name&quot;: &quot;Theoretical Computer Science&quot;,
+            &quot;courses&quot;: [&quot;COMP2610&quot;, &quot;COMP2620&quot;, &quot;COMP3610&quot;, &quot;COMP3630&quot;, &quot;MATH3343&quot;, &quot;COMP4600&quot;, &quot;COMP4630&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please take COMP4600 and COMP4630, and then 2 others.&quot;,
+            &quot;years&quot;: [2018, 2019, 2020, 2021, 2022, 2023]
+        },
+        {
+            &quot;name&quot;: &quot;Theoretical Computer Science&quot;,
+            &quot;courses&quot;: [&quot;COMP2620&quot;, &quot;COMP3610&quot;, &quot;COMP3630&quot;, &quot;COMP4712&quot;, &quot;COMP4600&quot;, &quot;COMP4630&quot;, &quot;COMP4011&quot;, &quot;MATH4343&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please take two of COMP2620, COMP3610, COMP3630 and COMP4712; and then any two more.&quot;,
+            &quot;years&quot;: [2024]
+        },
+        {
+            &quot;name&quot;: &quot;Theoretical Computer Science&quot;,
+            &quot;courses&quot;: [&quot;COMP4011&quot;, &quot;COMP4600&quot;, &quot;MATH4343&quot;, &quot;COMP2620&quot;, &quot;COMP3610&quot;, &quot;COMP3630&quot;, &quot;COMP4712&quot;, &quot;COMP4011&quot;, &quot;COMP4600&quot;, &quot;MATH4343&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;optional&quot;: &quot;spec&quot;,
+            &quot;guideString&quot;: &quot;Please take two of COMP4011, COMP4600 and MATH4343; then any two more.&quot;,
+            &quot;years&quot;: [2025, 2026]
+        },
+        {
+            &quot;header&quot;: &quot;Suggested courses&quot;,
+            &quot;guideString&quot;: null,
+            &quot;showAddAll&quot;: false,
+            &quot;courses&quot;: &quot;*RECOMMENDED*&quot;
+        },
+        {
+            &quot;header&quot;: &quot;Other COMP Courses&quot;,
+            &quot;name&quot;: &quot;COMP Level 1&quot;,
+            &quot;courses&quot;: [&quot;COMP1_&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: null
+        },
+        {
+            &quot;name&quot;: &quot;COMP Level 2&quot;,
+            &quot;courses&quot;: [&quot;COMP2_&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: null
+        },
+        {
+            &quot;name&quot;: &quot;COMP Level 3&quot;,
+            &quot;courses&quot;: [&quot;COMP3_&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: null
+        },
+        {
+            &quot;name&quot;: &quot;COMP Level 4&quot;,
+            &quot;courses&quot;: [&quot;COMP4_&quot;],
+            &quot;showAddAll&quot;: false,
+            &quot;guideString&quot;: null
+        }
+    ]
+}
+</code></pre>
+<h2 id="full-format-specification">Full Format Specification</h2>
+<p><code>json{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DegreeJSONEncoding",
+  "type": "object",
+  "required": [
+    "name",
+    "longName",
+    "degreeCode",
+    "defaultUnitsPerCourse",
+    "defaultTermLayout",
+    "termLayouts",
+    "defaultYearsInDegree"
+  ],
+  "properties": {
+    "name": { "type": "string" },
+    "longName": { "type": "string" },
+    "degreeCode": { "type": "string" },
+    "defaultUnitsPerCourse": { "type": "integer" },
+    "defaultTermLayout": { "type": "integer" },
+    "termLayouts": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "defaultYearsInDegree": { "type": "integer" },
+    "coursesPerTerm": { "type": "integer" },
+    "maxDegreeUnits": { "type": "integer" },
+    "displayYearStart": { "type": "integer" },
+    "minStartingYear": { "type": "integer" },
+    "validStartSemesters": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "search": {
+      "type": "object",
+      "required": ["layout", "selectedByDefault"],
+      "properties": {
+        "layout": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        },
+        "selectedByDefault": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "dropdown": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "header": { "type": "string" },
+          "name": { "type": "string" },
+          "courses": {
+            "oneOf": [
+              { "type": "string" },
+              {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            ]
+          },
+          "showAddAll": { "type": "boolean" },
+          "guideString": { "type": ["string", "null"] },
+          "years": {
+            "type": "array",
+            "items": { "type": "integer" }
+          },
+          "optional": { "type": "string" },
+          "subst": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}</code></p>
 <hr />
 <h2 id="toplevel-configuration">Toplevel Configuration</h2>
 <p>...</p>
