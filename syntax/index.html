@@ -1223,8 +1223,8 @@ AND<br />
 MATH1014 OR MATH1115 OR MATH1116</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>COMP3670 | ((COMP1110 | COMP1140) &amp; (MATH1014 | MATH1115 | MATH1116))
-</code></pre>
+<div class="highlight"><pre><span></span><code>COMP3670 | ((COMP1110 | COMP1140) &amp; (MATH1014 | MATH1115 | MATH1116))
+</code></pre></div>
 <hr />
 <h3 id="basic-unit-conversion">Basic Unit Conversion</h3>
 <p><strong>Input (English):</strong></p>
@@ -1233,14 +1233,14 @@ MATH1014 OR MATH1115 OR MATH1116</p>
 Incompatible with BIOL1123.</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>66 * &lt;['_']&gt; &amp; BIOL1004
-</code></pre>
+<div class="highlight"><pre><span></span><code>66 * &lt;[&#39;_&#39;]&gt; &amp; BIOL1004
+</code></pre></div>
 <hr />
 <h3 id="weak-check-alternative">Weak Check Alternative</h3>
 <p><strong>Same as above</strong>, using a <code>WEAK</code> clause:</p>
 <p><strong>Expression:</strong></p>
-<pre><code>72 * &lt;['_']&gt; &amp; WEAK(BIOL1004)
-</code></pre>
+<div class="highlight"><pre><span></span><code>72 * &lt;[&#39;_&#39;]&gt; &amp; WEAK(BIOL1004)
+</code></pre></div>
 <hr />
 <h3 id="advanced-filter-use">Advanced Filter Use</h3>
 <p><strong>Input (English):</strong></p>
@@ -1249,10 +1249,10 @@ Incompatible with BIOL1123.</p>
 but between the two, you must take 18 units of COMP3xxx unless you take COMP4600.</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>FILTER(18 * &lt;['COMP3_']&gt; | COMP4600) {
+<div class="highlight"><pre><span></span><code>FILTER(18 * &lt;[&#39;COMP3_&#39;]&gt; | COMP4600) {
     24 * &lt;...&gt; &amp; 24 * &lt;...&gt;
 }
-</code></pre>
+</code></pre></div>
 <hr />
 <h3 id="filter-weak-completion-check">Filter + Weak Completion Check</h3>
 <p><strong>Input (English):</strong></p>
@@ -1262,8 +1262,8 @@ but between the two, you must take 18 units of COMP3xxx unless you take COMP4600
 and Distinction in proposed research project.</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>30 * &lt;1 ['_2'] | ['_3']&gt; &amp; PC &amp; WEAK(96 * &lt;1 ['_']&gt;)
-</code></pre>
+<div class="highlight"><pre><span></span><code>30 * &lt;1 [&#39;_2&#39;] | [&#39;_3&#39;]&gt; &amp; PC &amp; WEAK(96 * &lt;1 [&#39;_&#39;]&gt;)
+</code></pre></div>
 <hr />
 <h3 id="use-of-subst">Use of <code>SUBST</code></h3>
 <p><strong>Input (English):</strong></p>
@@ -1272,8 +1272,8 @@ and Distinction in proposed research project.</p>
 COMS-MAJ, CSEC-MAJ, DTSC-MAJ, HCCC-MAJ</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>SUBST(&quot;COMS-MAJ&quot;, &quot;CSEC-MAJ&quot;, &quot;DTSC-MAJ&quot;, &quot;HCCC-MAJ&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code>SUBST(&quot;COMS-MAJ&quot;, &quot;CSEC-MAJ&quot;, &quot;DTSC-MAJ&quot;, &quot;HCCC-MAJ&quot;)
+</code></pre></div>
 <hr />
 <h3 id="grade-based-entry">Grade-Based Entry</h3>
 <p><strong>Input (English):</strong></p>
@@ -1282,8 +1282,8 @@ COMS-MAJ, CSEC-MAJ, DTSC-MAJ, HCCC-MAJ</p>
 or MATH1013/MATH1014 with ≥80.</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>MATH1116 &gt;= 60 | MATH1113 &gt;= 60 | MATH1013 &gt;= 80 | MATH1014 &gt;= 80
-</code></pre>
+<div class="highlight"><pre><span></span><code>MATH1116 &gt;= 60 | MATH1113 &gt;= 60 | MATH1013 &gt;= 80 | MATH1014 &gt;= 80
+</code></pre></div>
 <hr />
 <h3 id="year-dependent-path">Year-Dependent Path</h3>
 <p><strong>Input (English):</strong></p>
@@ -1292,8 +1292,8 @@ or MATH1013/MATH1014 with ≥80.</p>
 concurrently with MATH1115.</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>(~MATH1115 &amp; YEAR 1) | (MATH1116 &gt;= 60 | MATH1113 &gt;= 60 | MATH1013 &gt;= 80 | MATH1014 &gt;= 80)
-</code></pre>
+<div class="highlight"><pre><span></span><code>(~MATH1115 &amp; YEAR 1) | (MATH1116 &gt;= 60 | MATH1113 &gt;= 60 | MATH1013 &gt;= 80 | MATH1014 &gt;= 80)
+</code></pre></div>
 <hr />
 <h3 id="degree-specific-with-level-based-logic">Degree-Specific with Level-Based Logic</h3>
 <p><strong>Input (English):</strong></p>
@@ -1302,9 +1302,9 @@ concurrently with MATH1115.</p>
 OR Juris Doctor and 5 LAWS 1000/6100-level courses which may be concurrent.</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>(DEG &quot;Bachelor of Laws (ALLB)&quot; &amp; 30 * &lt;['LAWS1_'] | [~'LAWS1_']&gt;)
-| (DEG &quot;Juris Doctor (MJD)&quot; &amp; 30 * &lt;['LAWS1_'] | [~'LAWS1_'] | ['LAWS61_'] | [~'LAWS61_']&gt;)
-</code></pre>
+<div class="highlight"><pre><span></span><code>(DEG &quot;Bachelor of Laws (ALLB)&quot; &amp; 30 * &lt;[&#39;LAWS1_&#39;] | [~&#39;LAWS1_&#39;]&gt;)
+| (DEG &quot;Juris Doctor (MJD)&quot; &amp; 30 * &lt;[&#39;LAWS1_&#39;] | [~&#39;LAWS1_&#39;] | [&#39;LAWS61_&#39;] | [~&#39;LAWS61_&#39;]&gt;)
+</code></pre></div>
 <hr />
 <h3 id="concurrency-logic">Concurrency Logic</h3>
 <p><strong>Input (English):</strong></p>
@@ -1313,8 +1313,8 @@ OR Juris Doctor and 5 LAWS 1000/6100-level courses which may be concurrent.</p>
 Excludes COMP1140.</p>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>(EMET8005 | ~EMET8005) &amp; (ECON8013 | ~ECON8013)
-</code></pre>
+<div class="highlight"><pre><span></span><code>(EMET8005 | ~EMET8005) &amp; (ECON8013 | ~ECON8013)
+</code></pre></div>
 <hr />
 <h3 id="use-of-units-and-filter-together">Use of <code>UNITS</code> and <code>FILTER</code> Together</h3>
 <p><strong>Input (English):</strong></p>
@@ -1328,113 +1328,113 @@ Excludes COMP1140.</p>
 </ul>
 </blockquote>
 <p><strong>Expression:</strong></p>
-<pre><code>COMP1720 &amp; COMP3900 &amp; FILTER(12 * &lt;['COMP3_']&gt;) {
+<div class="highlight"><pre><span></span><code>COMP1720 &amp; COMP3900 &amp; FILTER(12 * &lt;[&#39;COMP3_&#39;]&gt;) {
     UNITS 36 {
         MIN 12 * &lt;COMP3540 | COMP4350 | COMP4610 | COMP4528&gt;
         MAX 12 * &lt;COMP1710 | HUMN1001 | MUSI1110 | PHIL1008&gt;
         MAX 24 * &lt;ARTH2181 | ARTV2059 | COMP2120 | COMP3670 | DESN2004 | DESN2008 | DESN2010 | HUMN2001 | MGMT2009 | MUSI3309 | SCOR3001 | SOCY2038 | SOCY2166&gt;
     }
 }
-</code></pre>
+</code></pre></div>
 <p><strong>Explanatory Notes</strong></p>
 <p><code>COMP3900</code> and <code>COMP1720</code> are required, and so get excluded from the <code>UNITS</code> block. Between them, they make up 12 units, so this 12 is removed
 from the 48 required, to give a <code>UNITS 36 { ... }</code>. We additionally lower the 18 units of COMP3xxx down to 12 units, because we are required
 to take <code>COMP3900</code>, which counts for 6 units.</p>
 <h2 id="ebnf">EBNF</h2>
 <p>This is <em>not</em> guaranteed to be correct, but just a sketch that may be of use.</p>
-<pre><code class="language-ebnf">&lt;expression&gt;        ::= &lt;or-expr&gt; ;
+<div class="highlight"><pre><span></span><code><span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">or-expr</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;or-expr&gt;           ::= &lt;and-expr&gt;
-                      | &lt;or-expr&gt; &quot;|&quot; &lt;and-expr&gt; ;
+<span class="err">&lt;</span><span class="k">or-expr</span><span class="err">&gt;</span>           <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">and-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">or-expr</span><span class="err">&gt;</span> <span class="s2">&quot;|&quot;</span> <span class="err">&lt;</span><span class="k">and-expr</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;and-expr&gt;          ::= &lt;term&gt;
-                      | &lt;and-expr&gt; &quot;&amp;&quot; &lt;term&gt; ;
+<span class="err">&lt;</span><span class="k">and-expr</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">and-expr</span><span class="err">&gt;</span> <span class="s2">&quot;&amp;&quot;</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;term&gt;              ::= &lt;parenthesised&gt;
-                      | &lt;unit-expr&gt;
-                      | &lt;special-expr&gt;
-                      | &lt;course-term&gt;
-                      | &lt;group-expr&gt; ;
+<span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>              <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">parenthesised</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">unit-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">special-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">course-term</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">group-expr</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;parenthesised&gt;     ::= &quot;(&quot; &lt;expression&gt; &quot;)&quot; ;
+<span class="err">&lt;</span><span class="k">parenthesised</span><span class="err">&gt;</span>     <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span> <span class="p">;</span>
 
-&lt;course-term&gt;       ::= [ &quot;!&quot; ] [ &quot;~&quot; ] &lt;COURSE_CODE&gt;
-                      | [ &quot;!&quot; ] [ &quot;~&quot; ] &quot;[&quot; [ &quot;~&quot; ] &lt;STRING_LITERAL&gt; &quot;]&quot; ;
+<span class="err">&lt;</span><span class="k">course-term</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;!&quot;</span> <span class="p">]</span> <span class="p">[</span> <span class="s2">&quot;~&quot;</span> <span class="p">]</span> <span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="p">[</span> <span class="s2">&quot;!&quot;</span> <span class="p">]</span> <span class="p">[</span> <span class="s2">&quot;~&quot;</span> <span class="p">]</span> <span class="s2">&quot;[&quot;</span> <span class="p">[</span> <span class="s2">&quot;~&quot;</span> <span class="p">]</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="s2">&quot;]&quot;</span> <span class="p">;</span>
 
-&lt;group-expr&gt;        ::= &quot;&lt;&quot; [ &quot;1&quot; ] &lt;group-item&gt; { &quot;|&quot; &lt;group-item&gt; } &quot;&gt;&quot; [ &quot;&gt;=&quot; &lt;INTEGER&gt; ] ;
+<span class="err">&lt;</span><span class="k">group-expr</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span> <span class="p">]</span> <span class="err">&lt;</span><span class="k">group-item</span><span class="err">&gt;</span> <span class="p">{</span> <span class="s2">&quot;|&quot;</span> <span class="err">&lt;</span><span class="k">group-item</span><span class="err">&gt;</span> <span class="p">}</span> <span class="s2">&quot;&gt;&quot;</span> <span class="p">[</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">]</span> <span class="p">;</span>
 
-&lt;group-item&gt;        ::= &lt;course-term&gt; ; 
+<span class="err">&lt;</span><span class="k">group-item</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">course-term</span><span class="err">&gt;</span> <span class="p">;</span> 
 
-&lt;unit-expr&gt;         ::= &lt;units-prefix&gt; &lt;course-or-group&gt;
-                     | &lt;courses-default-units&gt; ;
+<span class="err">&lt;</span><span class="k">unit-expr</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">units-prefix</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">course-or-group</span><span class="err">&gt;</span>
+                     <span class="p">|</span> <span class="err">&lt;</span><span class="k">courses-default-units</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;units-prefix&gt;      ::= &lt;INTEGER&gt; &quot;*&quot; ; 
+<span class="err">&lt;</span><span class="k">units-prefix</span><span class="err">&gt;</span>      <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="s2">&quot;*&quot;</span> <span class="p">;</span> 
 
-&lt;course-or-group&gt;   ::= &lt;course-term&gt; | &lt;group-expr&gt; ;
+<span class="err">&lt;</span><span class="k">course-or-group</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">course-term</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">group-expr</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;courses-default-units&gt;
-                    ::= &lt;course-term&gt; ; 
+<span class="err">&lt;</span><span class="k">courses-default-units</span><span class="err">&gt;</span>
+                    <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">course-term</span><span class="err">&gt;</span> <span class="p">;</span> 
 
-&lt;units-block&gt;       ::= &quot;UNITS&quot; &lt;INTEGER&gt; &quot;{&quot; &lt;minmax-clause&gt;{ &lt;minmax-clause&gt; } &quot;}&quot; ;
+<span class="err">&lt;</span><span class="k">units-block</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;UNITS&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="s2">&quot;{&quot;</span> <span class="err">&lt;</span><span class="k">minmax-clause</span><span class="err">&gt;</span><span class="p">{</span> <span class="err">&lt;</span><span class="k">minmax-clause</span><span class="err">&gt;</span> <span class="p">}</span> <span class="s2">&quot;}&quot;</span> <span class="p">;</span>
 
-&lt;minmax-clause&gt;     ::= ( &quot;MIN&quot; | &quot;MAX&quot; )
-                        &lt;INTEGER&gt; &quot;*&quot;
-                        &lt;group-expr&gt; ;
+<span class="err">&lt;</span><span class="k">minmax-clause</span><span class="err">&gt;</span>     <span class="err">::</span><span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;MIN&quot;</span> <span class="p">|</span> <span class="s2">&quot;MAX&quot;</span> <span class="p">)</span>
+                        <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="s2">&quot;*&quot;</span>
+                        <span class="err">&lt;</span><span class="k">group-expr</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;filter-expr&gt;       ::= &quot;FILTER&quot; &quot;(&quot; &lt;expression&gt; &quot;)&quot; &quot;{&quot; &lt;expression&gt; &quot;}&quot; ;
+<span class="err">&lt;</span><span class="k">filter-expr</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;FILTER&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span> <span class="s2">&quot;{&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;}&quot;</span> <span class="p">;</span>
 
-&lt;weak-expr&gt;         ::= &quot;WEAK&quot; &quot;(&quot; &lt;expression&gt; &quot;)&quot; ;
+<span class="err">&lt;</span><span class="k">weak-expr</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;WEAK&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span> <span class="p">;</span>
 
-&lt;then-after-expr&gt;   ::= ( &quot;THEN&quot; | &quot;AFTER&quot; )
-                        &lt;COURSE_CODE&gt;
-                        [ &quot;YEAR&quot; &lt;INTEGER&gt; ] 
-                        [ &lt;STRING_LITERAL&gt; ] 
+<span class="err">&lt;</span><span class="k">then-after-expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;THEN&quot;</span> <span class="p">|</span> <span class="s2">&quot;AFTER&quot;</span> <span class="p">)</span>
+                        <span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span>
+                        <span class="p">[</span> <span class="s2">&quot;YEAR&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">]</span> 
+                        <span class="p">[</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">]</span> 
 
-&lt;grade-expr&gt;        ::= &lt;COURSE_CODE&gt; &quot;&gt;=&quot; &lt;INTEGER&gt; ;
+<span class="err">&lt;</span><span class="k">grade-expr</span><span class="err">&gt;</span>        <span class="err">::=</span> <span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;gpa-expr&gt;          ::= &quot;GPA&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt; ;
+<span class="err">&lt;</span><span class="k">gpa-expr</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;GPA&quot;</span>  <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;wam-expr&gt;          ::= &quot;WAM&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt; ;
+<span class="err">&lt;</span><span class="k">wam-expr</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;WAM&quot;</span>  <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;year-expr&gt;         ::= &quot;YEAR&quot; &lt;INTEGER&gt; [ &quot;+&quot; ] ;
+<span class="err">&lt;</span><span class="k">year-expr</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;YEAR&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">[</span> <span class="s2">&quot;+&quot;</span> <span class="p">]</span> <span class="p">;</span>
 
-&lt;degree-expr&gt;       ::= &quot;DEG&quot; &lt;STRING_LITERAL&gt; ;
+<span class="err">&lt;</span><span class="k">degree-expr</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;DEG&quot;</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;permission-expr&gt;   ::= &quot;PC&quot;  [ &lt;STRING_LITERAL&gt; ] ;
+<span class="err">&lt;</span><span class="k">permission-expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;PC&quot;</span>  <span class="p">[</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">]</span> <span class="p">;</span>
 
-&lt;subst-expr&gt;        ::= &quot;SUBST&quot;
-                        &lt;string-list&gt; ;
+<span class="err">&lt;</span><span class="k">subst-expr</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;SUBST&quot;</span>
+                        <span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;select-expr&gt;       ::= &quot;SELECT&quot;
-                        &lt;STRING_LITERAL&gt; 
-                        &lt;string-list&gt; ;  
+<span class="err">&lt;</span><span class="k">select-expr</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;SELECT&quot;</span>
+                        <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> 
+                        <span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span> <span class="p">;</span>  
 
-&lt;string-list&gt;       ::= &lt;STRING_LITERAL&gt;
-                        { &quot;,&quot; &lt;STRING_LITERAL&gt; } ;
+<span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span>
+                        <span class="p">{</span> <span class="s2">&quot;,&quot;</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">}</span> <span class="p">;</span>
 
-&lt;constant&gt;          ::= &quot;TRUE&quot; | &quot;FALSE&quot; ;
+<span class="err">&lt;</span><span class="k">constant</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;TRUE&quot;</span> <span class="p">|</span> <span class="s2">&quot;FALSE&quot;</span> <span class="p">;</span>
 
-&lt;other-expr&gt;        ::= &quot;OTHER&quot; &lt;STRING_LITERAL&gt; ; 
+<span class="err">&lt;</span><span class="k">other-expr</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;OTHER&quot;</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">;</span> 
 
-&lt;special-expr&gt;      ::= &lt;units-block&gt;
-                      | &lt;filter-expr&gt;
-                      | &lt;weak-expr&gt;
-                      | &lt;then-after-expr&gt;
-                      | &lt;grade-expr&gt;
-                      | &lt;gpa-expr&gt;
-                      | &lt;wam-expr&gt;
-                      | &lt;year-expr&gt;
-                      | &lt;degree-expr&gt;
-                      | &lt;permission-expr&gt;
-                      | &lt;subst-expr&gt;
-                      | &lt;select-expr&gt;
-                      | &lt;constant&gt;
-                      | &lt;other-expr&gt; ;
+<span class="err">&lt;</span><span class="k">special-expr</span><span class="err">&gt;</span>      <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">units-block</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">filter-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">weak-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">then-after-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">grade-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">gpa-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">wam-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">year-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">degree-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">permission-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">subst-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">select-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">constant</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">other-expr</span><span class="err">&gt;</span> <span class="p">;</span>
 
-&lt;COURSE_CODE&gt;       ::= /[A-Z]{4}\d{4}/ ;
-&lt;STRING_LITERAL&gt;    ::= '&quot;' ... '&quot;'     
-&lt;INTEGER&gt;           ::= /0|[1-9]\d*/ ;
-</code></pre>
+<span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="err">/</span><span class="p">[</span><span class="k">A-Z</span><span class="p">]{</span><span class="err">4</span><span class="p">}</span><span class="err">\</span><span class="k">d</span><span class="p">{</span><span class="err">4</span><span class="p">}</span><span class="err">/</span> <span class="p">;</span>
+<span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span>    <span class="err">::</span><span class="o">=</span> <span class="s1">&#39;&quot;&#39;</span> <span class="p">.</span><span class="err">..</span> <span class="err">&#39;&quot;&#39;</span>     
+<span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span>           <span class="err">::</span><span class="o">=</span> <span class="err">/0</span><span class="p">|[</span><span class="err">1</span><span class="o">-</span><span class="err">9</span><span class="p">]</span><span class="err">\</span><span class="k">d</span><span class="err">*/</span> <span class="p">;</span>
+</code></pre></div>
 
 
 
