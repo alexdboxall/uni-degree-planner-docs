@@ -416,6 +416,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#other-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Expressions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wam-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       WAM Expressions
@@ -446,15 +455,6 @@
   <a href="#degree-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       Degree Expressions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#other-expressions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Other Expressions
     </span>
   </a>
   
@@ -819,6 +819,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#other-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Expressions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wam-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       WAM Expressions
@@ -849,15 +858,6 @@
   <a href="#degree-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       Degree Expressions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#other-expressions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Other Expressions
     </span>
   </a>
   
@@ -1228,9 +1228,14 @@
 <p>Some courses require the permission of a convener before you can enrol. Others require placement tests, finding a research supervisor and topic approval, the finding of an internship, etc.</p>
 <p>In these cases the <code>PC</code> (permission code) expression can be used to mark that there is a further external requirement that cannot be expressed in the degree planner.</p>
 <p>For instance a course which says "you must comple 96 units of courses, have a WAM of 75 or greater, completed ENGN3300 and ENGN3301, and be approved to enrol" might look like this: <code>WEAK(96 &amp; &lt;1 ['_']&gt;) &amp; WAM &gt;= 75 &amp; ENGN3300 &amp; ENGN3301 &amp; PC</code>.</p>
+<p>Optionally, a string literal may be given afterward to explain to the user the requirement. e.g. <code>(JPNS2003 &amp; JPNS2005) | PC "have completed a language proficiency assessment"</code>.</p>
+<h3 id="other-expressions">Other Expressions</h3>
+<p>An alternative method of expressing something not otherwise expressible in the language is to use an <code>OTHER</code> expression. This takes a string after it, and is passed to the uni-specific part of the backend, for it to do whatever it likes with. This ensures the language can be extended for any particularly unique rules.</p>
+<p>e.g. <code>24 * &lt;['_']&gt; &amp; OTHER "CBE_INTERNSHIP"</code> expresses that 24 units of any course must be taken, and then some uni specific check regarding a certain internship will also be run. These uni-specific functions must be written into the backend before the corresponding <code>OTHER</code> expression will work.</p>
+<p>In general, if requirements are getting this complicated, it is not always worth including it, and therefore a <code>PC</code> expression is likely enough to warn the user something more is going on. </p>
 <h3 id="wam-expressions">WAM Expressions</h3>
 <p>Some courses may require that a student's weighted average mark across their degree is above a certain value (e.g. in order to undertake an advanced course, an honours project, internship, etc).</p>
-<p>The syntax <code>WAM &gt;= 50</code> can be used (for any value). Only integral WAM values are supported, with values between 0 and 100 inclusive. </p>
+<p>The syntax <code>WAM &gt;= 50</code> can be used. Only integral WAM values are supported, with values between 0 and 100 inclusive. </p>
 <p>The planner internally supports allocating a grade to each completed course, but this in no longer used. Requiring grade entry adds unnecessary complexity for students to use the planner, and they are instead just presented with a warning on the course sidebar that they must check their WAM meets the requirement before enrolling in the course.</p>
 <h3 id="gpa-expressions">GPA Expressions</h3>
 <p>Similar to the WAM expression, a student's GPA (grade point average) can be tested against. e.g. <code>GPA &gt;= 5</code>.</p>
@@ -1239,8 +1244,6 @@
 <p>...</p>
 <h3 id="degree-expressions">Degree Expressions</h3>
 <p>...</p>
-<h3 id="other-expressions">Other Expressions</h3>
-<p>...</p>
 <h3 id="year-expressions">Year Expressions</h3>
 <p>...</p>
 <h3 id="then-expressions">Then Expressions</h3>
@@ -1248,7 +1251,12 @@
 <h3 id="after-expressions">After Expressions</h3>
 <p>...</p>
 <h3 id="constant-expressions">Constant Expressions</h3>
-<p>...</p>
+<p>The expressions <code>FALSE</code> and <code>TRUE</code> evaluate to those constant values. They are only rarely useful, and probably only useful in debugging.</p>
+<p>e.g.</p>
+<ul>
+<li><code>FALSE</code> (this prerequisite can never be met)</li>
+<li><code>TRUE</code> (this prerequisite is always met - this is the same as having an empty prerequsite expression)</li>
+</ul>
 <h3 id="weak-expressions">Weak Expressions</h3>
 <p>...</p>
 <h3 id="fast-path-groups">Fast-Path Groups</h3>
@@ -1463,15 +1471,15 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
 
 <span class="err">&lt;</span><span class="k">grade-expr</span><span class="err">&gt;</span>        <span class="err">::=</span> <span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
 
-<span class="err">&lt;</span><span class="k">gpa-expr</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;GPA&quot;</span>  <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
+<span class="err">&lt;</span><span class="k">gpa-expr</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;GPA&quot;</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
 
-<span class="err">&lt;</span><span class="k">wam-expr</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;WAM&quot;</span>  <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
+<span class="err">&lt;</span><span class="k">wam-expr</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;WAM&quot;</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
 
 <span class="err">&lt;</span><span class="k">year-expr</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;YEAR&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">[</span> <span class="s2">&quot;+&quot;</span> <span class="p">]</span> <span class="p">;</span>
 
 <span class="err">&lt;</span><span class="k">degree-expr</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;DEG&quot;</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">;</span>
 
-<span class="err">&lt;</span><span class="k">permission-expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;PC&quot;</span>  <span class="p">[</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">]</span> <span class="p">;</span>
+<span class="err">&lt;</span><span class="k">permission-expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;PC&quot;</span> <span class="p">[</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">]</span> <span class="p">;</span>
 
 <span class="err">&lt;</span><span class="k">subst-expr</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;SUBST&quot;</span> <span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span> <span class="p">;</span>
 
