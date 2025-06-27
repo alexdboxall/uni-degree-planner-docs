@@ -380,9 +380,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#concurrent-expressions" class="md-nav__link">
+  <a href="#corequisiteconcurrent-expressions" class="md-nav__link">
     <span class="md-ellipsis">
-      Concurrent Expressions
+      Corequisite/Concurrent Expressions
     </span>
   </a>
   
@@ -416,15 +416,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#grade-expressions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Grade Expressions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#wam-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       WAM Expressions
@@ -437,6 +428,15 @@
   <a href="#gpa-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       GPA Expressions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grade-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grade Expressions
     </span>
   </a>
   
@@ -783,9 +783,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#concurrent-expressions" class="md-nav__link">
+  <a href="#corequisiteconcurrent-expressions" class="md-nav__link">
     <span class="md-ellipsis">
-      Concurrent Expressions
+      Corequisite/Concurrent Expressions
     </span>
   </a>
   
@@ -819,15 +819,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#grade-expressions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Grade Expressions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#wam-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       WAM Expressions
@@ -840,6 +831,15 @@
   <a href="#gpa-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       GPA Expressions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grade-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grade Expressions
     </span>
   </a>
   
@@ -1147,12 +1147,32 @@
 </ul>
 <h2 id="basic-wildcards">Basic Wildcards</h2>
 <p>These must appear in square brackets and quotes inside a 'group' expression (the <code>X * &lt; ... &gt;</code> syntax above).</p>
-<ul>
-<li><code>['_']</code>        - any course </li>
-<li><code>['_3']</code>       - any course at a given level (e.g. 'any 3000-level course')</li>
-<li><code>['MATH_']</code>    - any course of a certain subject (e.g. 'any MATH course')</li>
-<li><code>['MATH3_']</code>   - any course at a given level, in a certain subject (e.g. 'any 3000-level MATH course')</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Wildcard</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>['_']</code></td>
+<td>any course</td>
+</tr>
+<tr>
+<td><code>['_3']</code></td>
+<td>any course at a given level (e.g. 'any 3000-level course')</td>
+</tr>
+<tr>
+<td><code>['MATH_']</code></td>
+<td>any course of a certain subject (e.g. 'any MATH course')</td>
+</tr>
+<tr>
+<td><code>['MATH3_']</code></td>
+<td>any course at a given level, in a certain subject (e.g. 'any 3000-level MATH course')</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="general-notes-on-evaluation">General Notes on Evaluation</h2>
 <p>Before we get into the exact syntax, we need to look at how the planner evaluates expressions. Take the following:</p>
@@ -1166,22 +1186,56 @@
 <p>The evaluator will test all combinations of ways it can get the courses you have taken to match against the requirements, as it is sensitive to evaluation order and which courses match against which wildcards. If <em>any</em> combination can match, then the requirement is satisfied.</p>
 <h3 id="but-actually">But Actually...</h3>
 <p>This is a slight simplification. Courses can have various unit amounts, and they can count as long as there are units left.</p>
-<p>e.g. if a course <code>COMP4500</code> if worth 12 units, and there is a requirement such as: <code>6 * &lt;['COMP_']&gt; &amp; 6 * &lt;['COMP4_']&gt;</code> (i.e. 6 units of any COMP course, then 6 units of any 4000-level COMP course), it <em>will</em> match, as the 12 units can be split across both requirements. It will <em>also</em> match the requirement <code>COMP4500 &amp; 6 * &lt;['COMP4_']&gt;</code>, as a raw course name (<code>COMP4500</code>) counts for the <em>default</em> number of units (6 in this case - see <a href="../degreeconfig/">Degree Configuration Files</a>{#Toplevel%20Configuration} for how to set this). If you have courses that have unit configurations different to the default, it is highly recommended to use the unit syntax (<code>12 * &lt;COMP4500&gt;</code>).</p>
+<p>e.g. if a course <code>COMP4500</code> if worth 12 units, and there is a requirement such as: <code>6 * &lt;['COMP_']&gt; &amp; 6 * &lt;['COMP4_']&gt;</code> (i.e. 6 units of any COMP course, then 6 units of any 4000-level COMP course), it <em>will</em> match, as the 12 units can be split across both requirements. It will <em>also</em> match the requirement <code>COMP4500 &amp; 6 * &lt;['COMP4_']&gt;</code>, as a raw course name (<code>COMP4500</code>) counts for the <em>default</em> number of units (6 in this case - see <a href="../degreeconfig/#toplevel-configuration">Degree Configuration Files</a> for how to set this). If you have courses that have unit configurations different to the default, it is highly recommended to use the unit syntax (<code>12 * &lt;COMP4500&gt;</code>).</p>
 <hr />
 <h2 id="advanced-constructs">Advanced Constructs</h2>
-<h3 id="concurrent-expressions">Concurrent Expressions</h3>
-<p>...</p>
+<h3 id="corequisiteconcurrent-expressions">Corequisite/Concurrent Expressions</h3>
+<p>Regular course requirements check that a course has been taken <em>prior</em> to the the student taking the course in question. However, sometimes it is useful to check if a given course is being taken at the <em>same time</em> instead. This is called a <em>corequisite</em>.</p>
+<p>We can check for this with the tilde (<code>~</code>) syntax, e.g. <code>~COMP1130</code> checks if <code>COMP1130</code> is being taken at the same time as the course in question (and <em>only</em> the present time).</p>
+<p>If it may be taken as a prerequisite or corequisite, you need to specify both, i.e: <code>(COMP1130 | ~COMP1130)</code></p>
+<p>Entire wildcards may be marked as concurrent, e.g. <code>12 * &lt;['COMP4_'] | ~['COMP4_']&gt;</code> is valid. The tilde (<code>~</code>) may go outside or inside the square brackets. e.g. both <code>~['ENGN_']</code> and <code>[~'ENGN_']</code> are valid.</p>
+<p>The <code>~</code> must only be used with raw course codes or wildcards. It cannot go in front of an arbitrary expression.</p>
 <h3 id="negation-expressions">Negation Expressions</h3>
-<p>...</p>
+<p>Many courses are incompatible with other courses, for instance if there is an regular and advanced version of the same course, or a postgraduate and undergradaute version, and it is inpermissible to take both courses. <strong>This is not generally dealt with by the prerequsite expression.</strong> A seperate field in the course configuration specifies a list of incompatible courses.</p>
+<p>There are occasionally times where more complex incompatibility logic is required, where it is conditional. There are two forms of this:</p>
+<ul>
+<li>A negation expression can be used to check that a course has <em>not</em> been taken. e.g. <code>!COMP1130</code></li>
+<li>A negation expression can form part of a group, to exclude particular courses from a wildcard. e.g. <code>12 * &lt;['COMP4_'] | !COMP4500 | !COMP4820&gt;</code> requires you to take 12 units from any 4000-level COMP courses except for <code>COMP4500</code> and <code>COMP4820</code>.</li>
+</ul>
+<p>The positioning of the courses within the group does not matter (i.e. it does not matter if negations appear before or after wildcards that mention that course) - the courses marked with <code>!</code> will be removed after all courses have been collected in the group.</p>
+<p>The <code>!</code> must only go before a raw course code. It cannot go in front of an arbitrary expression, nor a wildcard.</p>
 <h3 id="complex-wildcards">Complex Wildcards</h3>
-<p>...</p>
+<p>Additional, more advanced wildcards exist:</p>
+<table>
+<thead>
+<tr>
+<th>Wildcard</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>['LAWS61_']</code></td>
+<td>any course in a certain subject, with the given level and sublevel</td>
+</tr>
+<tr>
+<td><code>['TRANSDISCIPLINARY']</code></td>
+<td>(ANU specific) any course marked as having the transdisciplinary problem solving attribute</td>
+</tr>
+</tbody>
+</table>
 <h3 id="permission-code-expressions">Permission Code Expressions</h3>
-<p>...</p>
-<h3 id="grade-expressions">Grade Expressions</h3>
-<p>...</p>
+<p>Some courses require the permission of a convener before you can enrol. Others require placement tests, finding a research supervisor and topic approval, the finding of an internship, etc.</p>
+<p>In these cases the <code>PC</code> (permission code) expression can be used to mark that there is a further external requirement that cannot be expressed in the degree planner.</p>
+<p>For instance a course which says "you must comple 96 units of courses, have a WAM of 75 or greater, completed ENGN3300 and ENGN3301, and be approved to enrol" might look like this: <code>WEAK(96 &amp; &lt;1 ['_']&gt;) &amp; WAM &gt;= 75 &amp; ENGN3300 &amp; ENGN3301 &amp; PC</code>.</p>
 <h3 id="wam-expressions">WAM Expressions</h3>
-<p>...</p>
+<p>Some courses may require that a student's weighted average mark across their degree is above a certain value (e.g. in order to undertake an advanced course, an honours project, internship, etc).</p>
+<p>The syntax <code>WAM &gt;= 50</code> can be used (for any value). Only integral WAM values are supported, with values between 0 and 100 inclusive. </p>
+<p>The planner internally supports allocating a grade to each completed course, but this in no longer used. Requiring grade entry adds unnecessary complexity for students to use the planner, and they are instead just presented with a warning on the course sidebar that they must check their WAM meets the requirement before enrolling in the course.</p>
 <h3 id="gpa-expressions">GPA Expressions</h3>
+<p>Similar to the WAM expression, a student's GPA (grade point average) can be tested against. e.g. <code>GPA &gt;= 5</code>.</p>
+<p>It may be useful to be able to specify decimals, e.g. to check if the GPA exceeeds 5.5. As the language tokeniser only supports integers, we instead specify this as follows: <code>GPA &gt;= 55</code>. Two digit GPA values are internally divided by 10 before the comparison is performed. This means GPAs must be in the range of 0.0 to 9.9, in increments of 0.1.</p>
+<h3 id="grade-expressions">Grade Expressions</h3>
 <p>...</p>
 <h3 id="degree-expressions">Degree Expressions</h3>
 <p>...</p>
