@@ -1388,7 +1388,7 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
 <span class="err">&lt;</span><span class="k">group-item</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">course-term</span><span class="err">&gt;</span> <span class="p">;</span> 
 
 <span class="err">&lt;</span><span class="k">unit-expr</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">units-prefix</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">course-or-group</span><span class="err">&gt;</span>
-                     <span class="p">|</span> <span class="err">&lt;</span><span class="k">courses-default-units</span><span class="err">&gt;</span> <span class="p">;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">courses-default-units</span><span class="err">&gt;</span> <span class="p">;</span>
 
 <span class="err">&lt;</span><span class="k">units-prefix</span><span class="err">&gt;</span>      <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="s2">&quot;*&quot;</span> <span class="p">;</span> 
 
@@ -1399,18 +1399,13 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
 
 <span class="err">&lt;</span><span class="k">units-block</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;UNITS&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="s2">&quot;{&quot;</span> <span class="err">&lt;</span><span class="k">minmax-clause</span><span class="err">&gt;</span><span class="p">{</span> <span class="err">&lt;</span><span class="k">minmax-clause</span><span class="err">&gt;</span> <span class="p">}</span> <span class="s2">&quot;}&quot;</span> <span class="p">;</span>
 
-<span class="err">&lt;</span><span class="k">minmax-clause</span><span class="err">&gt;</span>     <span class="err">::</span><span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;MIN&quot;</span> <span class="p">|</span> <span class="s2">&quot;MAX&quot;</span> <span class="p">)</span>
-                        <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="s2">&quot;*&quot;</span>
-                        <span class="err">&lt;</span><span class="k">group-expr</span><span class="err">&gt;</span> <span class="p">;</span>
+<span class="err">&lt;</span><span class="k">minmax-clause</span><span class="err">&gt;</span>     <span class="err">::</span><span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;MIN&quot;</span> <span class="p">|</span> <span class="s2">&quot;MAX&quot;</span> <span class="p">)</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="s2">&quot;*&quot;</span> <span class="err">&lt;</span><span class="k">group-expr</span><span class="err">&gt;</span> <span class="p">;</span>
 
 <span class="err">&lt;</span><span class="k">filter-expr</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;FILTER&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span> <span class="s2">&quot;{&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;}&quot;</span> <span class="p">;</span>
 
 <span class="err">&lt;</span><span class="k">weak-expr</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;WEAK&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span> <span class="p">;</span>
 
-<span class="err">&lt;</span><span class="k">then-after-expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;THEN&quot;</span> <span class="p">|</span> <span class="s2">&quot;AFTER&quot;</span> <span class="p">)</span>
-                        <span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span>
-                        <span class="p">[</span> <span class="s2">&quot;YEAR&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">]</span> 
-                        <span class="p">[</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">]</span> 
+<span class="err">&lt;</span><span class="k">then-after-expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;THEN&quot;</span> <span class="p">|</span> <span class="s2">&quot;AFTER&quot;</span> <span class="p">)</span> <span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span> <span class="p">[</span> <span class="s2">&quot;YEAR&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">]</span> <span class="p">[</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">]</span> 
 
 <span class="err">&lt;</span><span class="k">grade-expr</span><span class="err">&gt;</span>        <span class="err">::=</span> <span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">;</span>
 
@@ -1424,15 +1419,11 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
 
 <span class="err">&lt;</span><span class="k">permission-expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;PC&quot;</span>  <span class="p">[</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">]</span> <span class="p">;</span>
 
-<span class="err">&lt;</span><span class="k">subst-expr</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;SUBST&quot;</span>
-                        <span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span> <span class="p">;</span>
+<span class="err">&lt;</span><span class="k">subst-expr</span><span class="err">&gt;</span>        <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;SUBST&quot;</span> <span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span> <span class="p">;</span>
 
-<span class="err">&lt;</span><span class="k">select-expr</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;SELECT&quot;</span>
-                        <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> 
-                        <span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span> <span class="p">;</span>  
+<span class="err">&lt;</span><span class="k">select-expr</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;SELECT&quot;</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span> <span class="p">;</span>  
 
-<span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span>
-                        <span class="p">{</span> <span class="s2">&quot;,&quot;</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">}</span> <span class="p">;</span>
+<span class="err">&lt;</span><span class="k">string-list</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">{</span> <span class="s2">&quot;,&quot;</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">}</span> <span class="p">;</span>
 
 <span class="err">&lt;</span><span class="k">constant</span><span class="err">&gt;</span>          <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;TRUE&quot;</span> <span class="p">|</span> <span class="s2">&quot;FALSE&quot;</span> <span class="p">;</span>
 

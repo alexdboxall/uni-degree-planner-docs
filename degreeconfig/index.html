@@ -727,13 +727,13 @@
 <td><code>name</code></td>
 <td><code>string</code></td>
 <td>Required</td>
-<td>The label on the drowndown group.</td>
+<td>The label on the drowndown group. <em>Only</em> in the case that <code>courses</code> is set to the string <code>*RECOMMENDED*</code> may this be omitted.</td>
 </tr>
 <tr>
 <td><code>courses</code></td>
-<td><code>array of strings</code></td>
+<td><code>array of strings, or a string</code></td>
 <td>Required, unless <code>subst</code> is present.</td>
-<td>The courses to show in this section. Wildcards (e.g. ['COMP1_']) are accepted, though should be used carefully to not have an overwhelming number of entries.</td>
+<td>The array of courses to show in this section. Wildcards (e.g. ['COMP1_']) are accepted, though should be used carefully to not have an overwhelming number of entries. This value may be a string literal, instead of an array, only if that string literal is <code>*RECOMMENDED*</code>, which causes the cause list to be generated automatically based on a recommender algorithm.</td>
 </tr>
 <tr>
 <td><code>showAddAll</code></td>
@@ -1183,7 +1183,6 @@
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="full-format-specification">Full Format Specification</h2>
-<p>This is <em>not</em> guaranteed to be correct, but acts like a rough guide.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DegreeJSONEncoding&quot;</span><span class="p">,</span>
@@ -1195,7 +1194,10 @@
 <span class="w">    </span><span class="s2">&quot;defaultUnitsPerCourse&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="s2">&quot;defaultTermLayout&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="s2">&quot;termLayouts&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;defaultYearsInDegree&quot;</span>
+<span class="w">    </span><span class="s2">&quot;defaultYearsInDegree&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;coursesPerTerm&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;maxDegreeUnits&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;displayYearStart&quot;</span>
 <span class="w">  </span><span class="p">],</span>
 <span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
