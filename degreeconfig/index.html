@@ -329,9 +329,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#recommender" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommender
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordering-your-dropdowns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordering Your Dropdowns
     </span>
   </a>
   
@@ -542,9 +560,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#recommender" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommender
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordering-your-dropdowns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordering Your Dropdowns
     </span>
   </a>
   
@@ -812,6 +848,16 @@
 </tr>
 </tbody>
 </table>
+<h3 id="recommender">Recommender</h3>
+<p>Using the following block, courses from a recommender algorithm can be placed in the sidebar.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;header&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Suggested courses&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;guideString&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;showAddAll&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;courses&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*RECOMMENDED*&quot;</span>
+<span class="p">},</span>
+</code></pre></div>
+<p>See <a href="#ordering-your-dropdowns">this section</a> for advice on where this should be placed.</p>
 <h3 id="examples">Examples</h3>
 <div class="highlight"><pre><span></span><code><span class="err">...</span>
 
@@ -849,6 +895,35 @@
 </code></pre></div>
 <p>In 2025, this displays as the following (noting that only one dropdown group can be open at once):</p>
 <p><img alt="Rendering of the example configuration in the left sidebar." src="../sidebar-demo-1.png" /></p>
+<h3 id="ordering-your-dropdowns">Ordering Your Dropdowns</h3>
+<p>The order that the dropdowns and groups are placed is arbitrary, though it is useful to keep them consistent across various degrees, and to ensure the language used in naming them and the headers is somewhat consistent too.</p>
+<p>The recommended order and hierarchy of headings and dropdowns is:</p>
+<ul>
+<li>Core Requirements<ul>
+<li>Introductory course choices (e.g. standard vs. advanced programming/maths intro courses - there may be multiple dropdowns here)</li>
+<li>Compulsory courses (all required courses - this should have the 'add all' button added.)</li>
+<li>Other course choices (e.g. any further sets of courses where you get choices - there may be multiple dropdowns here)</li>
+<li>Research/honours course choices (if there are options, else put in compulsory)</li>
+<li>Standard university requiremnets (e.g. 'transdisciplinary problem solving' courses)</li>
+</ul>
+</li>
+<li>Majors<ul>
+<li>one for each major...</li>
+</ul>
+</li>
+<li><code>*RECOMMENDED*</code></li>
+<li>Other Discipline Courses (e.g. "Other COMP Courses") (only if useful for meeting wildcard degree requiremnets)<ul>
+<li>COMP Level 1</li>
+<li>COMP Level 2</li>
+<li>COMP Level 3</li>
+<li>COMP Level 4</li>
+</ul>
+</li>
+</ul>
+<p>An example for an engineering degree (with the recommender taken out):
+<img alt="Example Engineering degree left sidebar" src="../eng-sidebar-full.png" /></p>
+<p>An example for a computing degree (with the recommender taken out):
+<img alt="Example Computing degree left sidebar" src="../comp-sidebar-full.png" /></p>
 <hr />
 <h2 id="search-configuration">Search Configuration</h2>
 <p>The <code>search</code> configuration defines togglable filters for course visibility within the degree planner's course search interface.</p>

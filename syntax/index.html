@@ -506,6 +506,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hint-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hint Expressions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fast-path-groups" class="md-nav__link">
     <span class="md-ellipsis">
       Fast-Path Groups
@@ -909,6 +918,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hint-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hint Expressions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fast-path-groups" class="md-nav__link">
     <span class="md-ellipsis">
       Fast-Path Groups
@@ -1259,6 +1277,8 @@
 </ul>
 <h3 id="weak-expressions">Weak Expressions</h3>
 <p>...</p>
+<h3 id="hint-expressions">Hint Expressions</h3>
+<p>...</p>
 <h3 id="fast-path-groups">Fast-Path Groups</h3>
 <p>In the evaluation of group expressions (<code>X * &lt;...&gt;</code>), the evaluator will attempt all combinations to get courses to match wildcards.
 Is is to ensure the later parts of the expression can be tested against all combinations, to ensure we test all possibilities.</p>
@@ -1465,6 +1485,8 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
 
 <span class="err">&lt;</span><span class="k">filter-expr</span><span class="err">&gt;</span>       <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;FILTER&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span> <span class="s2">&quot;{&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;}&quot;</span> <span class="p">;</span>
 
+<span class="err">&lt;</span><span class="k">hint-expr</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;HINT&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span> <span class="p">;</span>
+
 <span class="err">&lt;</span><span class="k">weak-expr</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;WEAK&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span> <span class="p">;</span>
 
 <span class="err">&lt;</span><span class="k">then-after-expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;THEN&quot;</span> <span class="p">|</span> <span class="s2">&quot;AFTER&quot;</span> <span class="p">)</span> <span class="err">&lt;</span><span class="k">COURSE_CODE</span><span class="err">&gt;</span> <span class="p">[</span> <span class="s2">&quot;YEAR&quot;</span> <span class="err">&lt;</span><span class="k">INTEGER</span><span class="err">&gt;</span> <span class="p">]</span> <span class="p">[</span> <span class="err">&lt;</span><span class="k">STRING_LITERAL</span><span class="err">&gt;</span> <span class="p">]</span> 
@@ -1494,6 +1516,7 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
 <span class="err">&lt;</span><span class="k">special-expr</span><span class="err">&gt;</span>      <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">units-block</span><span class="err">&gt;</span>
                       <span class="p">|</span> <span class="err">&lt;</span><span class="k">filter-expr</span><span class="err">&gt;</span>
                       <span class="p">|</span> <span class="err">&lt;</span><span class="k">weak-expr</span><span class="err">&gt;</span>
+                      <span class="p">|</span> <span class="err">&lt;</span><span class="k">hint-expr</span><span class="err">&gt;</span>
                       <span class="p">|</span> <span class="err">&lt;</span><span class="k">then-after-expr</span><span class="err">&gt;</span>
                       <span class="p">|</span> <span class="err">&lt;</span><span class="k">grade-expr</span><span class="err">&gt;</span>
                       <span class="p">|</span> <span class="err">&lt;</span><span class="k">gpa-expr</span><span class="err">&gt;</span>
