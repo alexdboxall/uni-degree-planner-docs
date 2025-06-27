@@ -1187,6 +1187,7 @@ Is is to ensure the later parts of the expression can be tested against all comb
 <p>...</p>
 <h3 id="select-expressions">Select Expressions</h3>
 <p>...</p>
+<hr />
 <h2 id="examples">Examples</h2>
 <p>Below is a list of real-world examples of course logic in English and their equivalent prerequisite expressions.</p>
 <hr />
@@ -1319,8 +1320,7 @@ from the 48 required, to give a <code>UNITS 36 { ... }</code>. We additionally l
 to take <code>COMP3900</code>, which counts for 6 units.</p>
 <h2 id="ebnf">EBNF</h2>
 <p>This is <em>not</em> guaranteed to be correct, but just a sketch that may be of use.</p>
-<pre><code class="language-ebnf">(* -------------  Top-level ------------- *)
-&lt;expression&gt;        ::= &lt;or-expr&gt; ;
+<pre><code class="language-ebnf">&lt;expression&gt;        ::= &lt;or-expr&gt; ;
 
 &lt;or-expr&gt;           ::= &lt;and-expr&gt;
                       | &lt;or-expr&gt; &quot;|&quot; &lt;and-expr&gt; ;
@@ -1328,7 +1328,6 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
 &lt;and-expr&gt;          ::= &lt;term&gt;
                       | &lt;and-expr&gt; &quot;&amp;&quot; &lt;term&gt; ;
 
-(* -------------  Terms / primaries ------------- *)
 &lt;term&gt;              ::= &lt;parenthesised&gt;
                       | &lt;unit-expr&gt;
                       | &lt;special-expr&gt;
@@ -1337,62 +1336,41 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
 
 &lt;parenthesised&gt;     ::= &quot;(&quot; &lt;expression&gt; &quot;)&quot; ;
 
-(* -------------  Courses, wildcards, groups ------------- *)
 &lt;course-term&gt;       ::= [ &quot;!&quot; ] [ &quot;~&quot; ] &lt;COURSE_CODE&gt;
                       | [ &quot;!&quot; ] [ &quot;~&quot; ] &quot;[&quot; [ &quot;~&quot; ] &lt;STRING_LITERAL&gt; &quot;]&quot; ;
 
-&lt;group-expr&gt;        ::= &quot;&lt;&quot;
-                           [ &quot;1&quot; ]                       (* “stop-after-first” hint *)
-                           &lt;group-item&gt;
-                           { &quot;|&quot; &lt;group-item&gt; }
-                        &quot;&gt;&quot;
-                        [ &quot;&gt;=&quot; &lt;INTEGER&gt; ]               (* per-course minimum grade *)
-                        ;
+&lt;group-expr&gt;        ::= &quot;&lt;&quot; [ &quot;1&quot; ] &lt;group-item&gt; { &quot;|&quot; &lt;group-item&gt; } &quot;&gt;&quot; [ &quot;&gt;=&quot; &lt;INTEGER&gt; ] ;
 
-&lt;group-item&gt;        ::= &lt;course-term&gt; ;                  (* Courses and/or wildcards *)
+&lt;group-item&gt;        ::= &lt;course-term&gt; ; 
 
 &lt;unit-expr&gt;         ::= &lt;units-prefix&gt; &lt;course-or-group&gt;
                      | &lt;courses-default-units&gt; ;
 
-&lt;units-prefix&gt;      ::= &lt;INTEGER&gt; &quot;*&quot; ;                  (* Explicit unit count *)
+&lt;units-prefix&gt;      ::= &lt;INTEGER&gt; &quot;*&quot; ; 
 
 &lt;course-or-group&gt;   ::= &lt;course-term&gt; | &lt;group-expr&gt; ;
 
 &lt;courses-default-units&gt;
-                    ::= &lt;course-term&gt; ;                  (* Implicit units = default *)
+                    ::= &lt;course-term&gt; ; 
 
-(* -------------  “UNITS n { … }” ------------- *)
-
-&lt;units-block&gt;       ::= &quot;UNITS&quot; &lt;INTEGER&gt;
-                        &quot;{&quot;
-                           &lt;minmax-clause&gt;
-                           { &lt;minmax-clause&gt; }
-                        &quot;}&quot; ;
+&lt;units-block&gt;       ::= &quot;UNITS&quot; &lt;INTEGER&gt; &quot;{&quot; &lt;minmax-clause&gt;{ &lt;minmax-clause&gt; } &quot;}&quot; ;
 
 &lt;minmax-clause&gt;     ::= ( &quot;MIN&quot; | &quot;MAX&quot; )
                         &lt;INTEGER&gt; &quot;*&quot;
                         &lt;group-expr&gt; ;
 
-(* -------------  Filters and WEAK ------------- *)
-&lt;filter-expr&gt;       ::= &quot;FILTER&quot;
-                        &quot;(&quot;  &lt;expression&gt; &quot;)&quot;            (* WEAK filter test        *)
-                        &quot;{&quot;
-                            &lt;expression&gt;                 (* Main counted expression *)
-                        &quot;}&quot; ;
+&lt;filter-expr&gt;       ::= &quot;FILTER&quot; &quot;(&quot; &lt;expression&gt; &quot;)&quot; &quot;{&quot; &lt;expression&gt; &quot;}&quot; ;
 
 &lt;weak-expr&gt;         ::= &quot;WEAK&quot; &quot;(&quot; &lt;expression&gt; &quot;)&quot; ;
 
-(* -------------  Then / After ------------- *)
 &lt;then-after-expr&gt;   ::= ( &quot;THEN&quot; | &quot;AFTER&quot; )
                         &lt;COURSE_CODE&gt;
-                        [ &quot;YEAR&quot; &lt;INTEGER&gt; ]             (* fixed year, optional    *)
-                        [ &lt;STRING_LITERAL&gt; ]             (* fixed semester, optional*)
+                        [ &quot;YEAR&quot; &lt;INTEGER&gt; ] 
+                        [ &lt;STRING_LITERAL&gt; ] 
 
-(* -------------  Other atomic special forms ------------- *)
 &lt;grade-expr&gt;        ::= &lt;COURSE_CODE&gt; &quot;&gt;=&quot; &lt;INTEGER&gt; ;
 
-&lt;gpa-expr&gt;          ::= &quot;GPA&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt;            (* or ×10 for halves       *)
-                      | &quot;GPA&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt;.&lt;INTEGER&gt; ;
+&lt;gpa-expr&gt;          ::= &quot;GPA&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt; ;
 
 &lt;wam-expr&gt;          ::= &quot;WAM&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt; ;
 
@@ -1406,35 +1384,33 @@ to take <code>COMP3900</code>, which counts for 6 units.</p>
                         &lt;string-list&gt; ;
 
 &lt;select-expr&gt;       ::= &quot;SELECT&quot;
-                        &lt;STRING_LITERAL&gt;                 (* selector id            *)
-                        &lt;string-list&gt; ;                  (* same list syntax       *)
+                        &lt;STRING_LITERAL&gt; 
+                        &lt;string-list&gt; ;  
 
 &lt;string-list&gt;       ::= &lt;STRING_LITERAL&gt;
                         { &quot;,&quot; &lt;STRING_LITERAL&gt; } ;
 
 &lt;constant&gt;          ::= &quot;TRUE&quot; | &quot;FALSE&quot; ;
 
-&lt;other-expr&gt;        ::= &quot;OTHER&quot; &lt;STRING_LITERAL&gt; ;       (* school-specific hook   *)
+&lt;other-expr&gt;        ::= &quot;OTHER&quot; &lt;STRING_LITERAL&gt; ; 
 
-(* -------------  Catch-all for any primary that isn’t     *)
 &lt;special-expr&gt;      ::= &lt;units-block&gt;
-                     | &lt;filter-expr&gt;
-                     | &lt;weak-expr&gt;
-                     | &lt;then-after-expr&gt;
-                     | &lt;grade-expr&gt;
-                     | &lt;gpa-expr&gt;
-                     | &lt;wam-expr&gt;
-                     | &lt;year-expr&gt;
-                     | &lt;degree-expr&gt;
-                     | &lt;permission-expr&gt;
-                     | &lt;subst-expr&gt;
-                     | &lt;select-expr&gt;
-                     | &lt;constant&gt;
-                     | &lt;other-expr&gt; ;
+                      | &lt;filter-expr&gt;
+                      | &lt;weak-expr&gt;
+                      | &lt;then-after-expr&gt;
+                      | &lt;grade-expr&gt;
+                      | &lt;gpa-expr&gt;
+                      | &lt;wam-expr&gt;
+                      | &lt;year-expr&gt;
+                      | &lt;degree-expr&gt;
+                      | &lt;permission-expr&gt;
+                      | &lt;subst-expr&gt;
+                      | &lt;select-expr&gt;
+                      | &lt;constant&gt;
+                      | &lt;other-expr&gt; ;
 
-(* -------------  Lexical tokens (regex sketches) -------- *)
 &lt;COURSE_CODE&gt;       ::= /[A-Z]{4}\d{4}/ ;
-&lt;STRING_LITERAL&gt;    ::= '&quot;' ... '&quot;'                       (* any printable except &quot; *)
+&lt;STRING_LITERAL&gt;    ::= '&quot;' ... '&quot;'     
 &lt;INTEGER&gt;           ::= /0|[1-9]\d*/ ;
 </code></pre>
 
