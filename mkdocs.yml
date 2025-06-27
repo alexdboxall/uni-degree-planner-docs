@@ -1,0 +1,11 @@
+site_name: Uni Degree Planner Documentation
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.top
+    - content.code.copy
+    - content.tabs.link
+    - content.action.edit
+    - search.highlight
+    - search.suggest
