@@ -11,6 +11,8 @@ You can try the unofficial ANU planner here: **[Unofficial ANU Degree Planner](h
 **View the full documentation site here:**  
 [https://alexdboxall.github.io/uni-degree-planner-docs/](https://alexdboxall.github.io/uni-degree-planner-docs/)
 
+![The degree planner in use](docs/demo.png)
+
 ---
 
 Built using [MkDocs](https://www.mkdocs.org/) with the [Material for MkDocs theme](https://squidfunk.github.io/mkdocs-material/).

@@ -8,6 +8,8 @@ The tool is designed to be easily configurable for any university or school. It 
 
 You can try the unofficial ANU planner here: **[Unofficial ANU Degree Planner](https://www.unidegreeplanner.com)**
 
+![The degree planner in use](demo.png)
+
 ---
 
 ## Sections
