@@ -1,0 +1,1093 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Prerequisite Expression Language - Uni Degree Planner Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prerequisite-expression-language" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Uni Degree Planner Documentation" class="md-header__button md-logo" aria-label="Uni Degree Planner Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Uni Degree Planner Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Prerequisite Expression Language
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Uni Degree Planner Documentation" class="md-nav__button md-logo" aria-label="Uni Degree Planner Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Uni Degree Planner Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uni Degree Planner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Prerequisite Expression Language
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisite Expression Language
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-constructs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Constructs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-wildcards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Wildcards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-notes-on-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Notes on Evaluation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Notes on Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Takeaway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#but-actually" class="md-nav__link">
+    <span class="md-ellipsis">
+      But Actually...
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-constructs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Constructs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitespace-and-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Whitespace and Precedence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-unit-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Unit Conversion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weak-check-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weak Check Alternative
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-filter-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Filter Use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-weak-completion-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter + Weak Completion Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-of-subst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use of SUBST
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grade-based-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grade-Based Entry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#year-dependent-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Year-Dependent Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#degree-specific-with-level-based-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Degree-Specific with Level-Based Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrency-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concurrency Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-of-units-and-filter-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use of UNITS and FILTER Together
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      EBNF
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-constructs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Constructs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-wildcards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Wildcards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-notes-on-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Notes on Evaluation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Notes on Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Takeaway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#but-actually" class="md-nav__link">
+    <span class="md-ellipsis">
+      But Actually...
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-constructs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Constructs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitespace-and-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Whitespace and Precedence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-unit-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Unit Conversion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weak-check-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weak Check Alternative
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-filter-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Filter Use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-weak-completion-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter + Weak Completion Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-of-subst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use of SUBST
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grade-based-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grade-Based Entry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#year-dependent-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Year-Dependent Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#degree-specific-with-level-based-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Degree-Specific with Level-Based Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrency-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concurrency Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-of-units-and-filter-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use of UNITS and FILTER Together
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      EBNF
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="prerequisite-expression-language">Prerequisite Expression Language</h1>
+<p>The Prerequisite Expression Language is used to logically encode the requirements for taking a course, or for completing a degree, major, specialisation, etc.</p>
+<p>This document provides a comprehensive guide to the language syntax, structure, and evaluation model.</p>
+<h2 id="overview">📚 Overview</h2>
+<ul>
+<li>
+<p><a href="#basic-constructs">Basic Constructs</a><br />
+  Learn how to write simple requirements using course codes, unit counts, and wildcards.</p>
+</li>
+<li>
+<p><a href="#general-notes-on-evaluation">General Notes on Evaluation</a><br />
+  Understand how the evaluator matches courses against expressions and why ordering matters.</p>
+</li>
+<li>
+<p><a href="#advanced-constructs">Advanced Constructs</a><br />
+  Explore filters, non-consuming checks (<code>WEAK</code>), multi-clause expressions (<code>UNITS</code>), and more.</p>
+</li>
+<li>
+<p><a href="#examples">Examples</a><br />
+  See real-world input → output conversions to understand the language in practice.</p>
+</li>
+<li>
+<p><a href="#ebnf">EBNF Grammar</a><br />
+  View the full (approximate) formal grammar of the language for reference or tooling support.</p>
+</li>
+</ul>
+<hr />
+<h2 id="basic-constructs">Basic Constructs</h2>
+<ul>
+<li><code>COMP1100</code>                                             — the default number of units of a certain course must be taken prior to now</li>
+<li><code>~COMP1100</code>                                            — the default number of units of a certain course that are taken concurrently</li>
+<li><code>6 * &lt;COMP1100 | COMP1130&gt;</code>                            — units from a group of courses (any of them can count)</li>
+<li><code>12 * &lt;['MATH_']&gt;</code>                                     — units from a group of courses, using a wildcard (this one is 'any MATH course')</li>
+<li><code>12 * &lt;COMP1100 | ENGN4213 | ['MATH_'] | ['_3']&gt;</code>      — units from a group of courses, mixed (any combinations are fine)</li>
+<li><code>COMP1100 &amp; COMP1730</code>                                  - 'AND' expression (the left-hand-side and right-hand-side must be satisfied)</li>
+<li><code>COMP1100 | COMP1730</code>                                  - 'OR' expression (the left-hand-side or right-hand-side must be satisfied)</li>
+</ul>
+<p>These can be mixed and matched using brackets and such, too. e.g.:</p>
+<p><code>COMP1100 &amp; COMP1110 &amp; (MATH1005 | MATH2222) &amp; 24 * &lt;['COMP3_'] | ['COMP4_'] | ENGN4213&gt;</code></p>
+<p>This means: 'must take COMP1100 and COMP1110 and (either MATH1005 or MATH2222), and 24 units of (3000 or 4000-level COMP, or ENGN4213).</p>
+<p>For instance this might be satisfied by taking:</p>
+<ul>
+<li><code>COMP1100</code>, <code>COMP1110</code>, <code>MATH1005</code>, <code>COMP3500</code> (12 units), <code>ENGN4213</code>, <code>COMP4600</code></li>
+</ul>
+<p>Or, maybe like this!</p>
+<ul>
+<li><code>COMP1100</code>, <code>COMP1110</code>, <code>MATH2222</code>, <code>COMP3600</code>, <code>COMP4600</code>, <code>COMP4670</code>, <code>COMP3900</code></li>
+</ul>
+<h2 id="basic-wildcards">Basic Wildcards</h2>
+<p>These must appear in square brackets and quotes inside a 'group' expression (the <code>X * &lt; ... &gt;</code> syntax above).</p>
+<ul>
+<li><code>['_']</code>        - any course </li>
+<li><code>['_3']</code>       - any course at a given level (e.g. 'any 3000-level course')</li>
+<li><code>['MATH_']</code>    - any course of a certain subject (e.g. 'any MATH course')</li>
+<li><code>['MATH3_']</code>   - any course at a given level, in a certain subject (e.g. 'any 3000-level MATH course')</li>
+</ul>
+<hr />
+<h2 id="general-notes-on-evaluation">General Notes on Evaluation</h2>
+<p>Before we get into the exact syntax, we need to look at how the planner evaluates expressions. Take the following:</p>
+<p><code>MATH1005 &amp; 6 * &lt;COMP1100 | ['MATH_']&gt;</code></p>
+<p>This expression means that someone must have completed MATH1005, and then either COMP1100, or any MATH course.</p>
+<p>Now we consider whether this expression would be satisfied if the user just took <code>MATH1005</code>. We find that it <em>isn't</em>, and this is because the evaluator <strong>does not double count courses to requirements</strong>. <code>MATH1005</code> could count toward its explicit mention in the expression, or against the <code>['MATH_']</code> wildcard, but it can't count for both.</p>
+<p>Now we consider someone who has taken both <code>COMP1100</code> and <code>MATH1005</code>. We can see this is clearly satisfied: the left-hand-side of the <code>&amp;</code> is satisfied by taking <code>MATH1005</code>, and the right-hand-side by taking <code>COMP1100</code>. </p>
+<p>But if we were to evaluate this 'wrongly', we can find ways for this to not be satisfied. For instance, let's evaluate the right-hand-side first. We'll match the <code>MATH1005</code> the user has taken against the <code>['MATH_']</code> wildcard (instead of <code>COMP1100</code> against its explicit requirement). Now when we get to the left-hand-side, we are stuck.</p>
+<h3 id="important-takeaway">Important Takeaway</h3>
+<p>Courses a user have taken can only be matched against a single requirement, they do not double count.</p>
+<p>The evaluator will test all combinations of ways it can get the courses you have taken to match against the requirements, as it is sensitive to evaluation order and which courses match against which wildcards. If <em>any</em> combination can match, then the requirement is satisfied.</p>
+<h3 id="but-actually">But Actually...</h3>
+<p>This is a slight simplification. Courses can have various unit amounts, and they can count as long as there are units left.</p>
+<p>e.g. if a course <code>COMP4500</code> if worth 12 units, and there is a requirement such as: <code>6 * &lt;['COMP_']&gt; &amp; 6 * &lt;['COMP4_']&gt;</code> (i.e. 6 units of any COMP course, then 6 units of any 4000-level COMP course), it <em>will</em> match, as the 12 units can be split across both requirements. It will <em>also</em> match the requirement <code>COMP4500 &amp; 6 * &lt;['COMP4_']&gt;</code>, as a raw course name (<code>COMP4500</code>) counts for the <em>default</em> number of units (6 in this case). If you have courses that are multi-unit, it is highly recommended to use the unit syntax (<code>12 * &lt;COMP4500&gt;</code>).</p>
+<hr />
+<h2 id="advanced-constructs">Advanced Constructs</h2>
+<ul>
+<li><code>FILTER(expr) { subtree }</code> — filters combinations by a secondary condition  </li>
+<li><code>WEAK(expr)</code> — condition that does not 'consume' courses  </li>
+<li><code>UNITS 24 { MIN ...; MAX ...; }</code> — more complex rules</li>
+</ul>
+<p>See full spec and examples below.</p>
+<h2 id="examples">Examples</h2>
+<p>Below is a list of real-world examples of course logic in English and their equivalent prerequisite expressions.</p>
+<hr />
+<h3 id="whitespace-and-precedence">Whitespace and Precedence</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>COMP3670  </p>
+<p>OR  </p>
+<p>COMP1110 OR COMP1140<br />
+AND<br />
+MATH1014 OR MATH1115 OR MATH1116</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>COMP3670 | ((COMP1110 | COMP1140) &amp; (MATH1014 | MATH1115 | MATH1116))
+</code></pre>
+<hr />
+<h3 id="basic-unit-conversion">Basic Unit Conversion</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>You must have completed 72 units toward a degree including BIOL1004.<br />
+Incompatible with BIOL1123.</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>66 * &lt;['_']&gt; &amp; BIOL1004
+</code></pre>
+<hr />
+<h3 id="weak-check-alternative">Weak Check Alternative</h3>
+<p><strong>Same as above</strong>, using a <code>WEAK</code> clause:</p>
+<p><strong>Expression:</strong></p>
+<pre><code>72 * &lt;['_']&gt; &amp; WEAK(BIOL1004)
+</code></pre>
+<hr />
+<h3 id="advanced-filter-use">Advanced Filter Use</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>Must complete 24 units of some list of courses, and 24 units from some other list of courses,<br />
+but between the two, you must take 18 units of COMP3xxx unless you take COMP4600.</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>FILTER(18 * &lt;['COMP3_']&gt; | COMP4600) {
+    24 * &lt;...&gt; &amp; 24 * &lt;...&gt;
+}
+</code></pre>
+<hr />
+<h3 id="filter-weak-completion-check">Filter + Weak Completion Check</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>Must have completed 96 units toward a degree which must include:<br />
+30 units of courses at 2000/3000 level, Credit average in ENVS courses,<br />
+and Distinction in proposed research project.</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>30 * &lt;1 ['_2'] | ['_3']&gt; &amp; PC &amp; WEAK(96 * &lt;1 ['_']&gt;)
+</code></pre>
+<hr />
+<h3 id="use-of-subst">Use of <code>SUBST</code></h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>Completion of one of the following computing majors:<br />
+COMS-MAJ, CSEC-MAJ, DTSC-MAJ, HCCC-MAJ</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>SUBST(&quot;COMS-MAJ&quot;, &quot;CSEC-MAJ&quot;, &quot;DTSC-MAJ&quot;, &quot;HCCC-MAJ&quot;)
+</code></pre>
+<hr />
+<h3 id="grade-based-entry">Grade-Based Entry</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>Students who completed MATH1116 or MATH1113 with ≥60,<br />
+or MATH1013/MATH1014 with ≥80.</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>MATH1116 &gt;= 60 | MATH1113 &gt;= 60 | MATH1013 &gt;= 80 | MATH1014 &gt;= 80
+</code></pre>
+<hr />
+<h3 id="year-dependent-path">Year-Dependent Path</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>ACT Specialist Maths double major students may take this in first year<br />
+concurrently with MATH1115.</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>(~MATH1115 &amp; YEAR 1) | (MATH1116 &gt;= 60 | MATH1113 &gt;= 60 | MATH1013 &gt;= 80 | MATH1014 &gt;= 80)
+</code></pre>
+<hr />
+<h3 id="degree-specific-with-level-based-logic">Degree-Specific with Level-Based Logic</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>Enrolled in Bachelor of Laws (ALLB) and 5 LAWS 1000-level courses which may be concurrent,<br />
+OR Juris Doctor and 5 LAWS 1000/6100-level courses which may be concurrent.</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>(DEG &quot;Bachelor of Laws (ALLB)&quot; &amp; 30 * &lt;['LAWS1_'] | [~'LAWS1_']&gt;)
+| (DEG &quot;Juris Doctor (MJD)&quot; &amp; 30 * &lt;['LAWS1_'] | [~'LAWS1_'] | ['LAWS61_'] | [~'LAWS61_']&gt;)
+</code></pre>
+<hr />
+<h3 id="concurrency-logic">Concurrency Logic</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>Must have completed or be concurrently enrolled in EMET8005 and ECON8013.<br />
+Excludes COMP1140.</p>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>(EMET8005 | ~EMET8005) &amp; (ECON8013 | ~ECON8013)
+</code></pre>
+<hr />
+<h3 id="use-of-units-and-filter-together">Use of <code>UNITS</code> and <code>FILTER</code> Together</h3>
+<p><strong>Input (English):</strong></p>
+<blockquote>
+<p>48 units, which must consist of at least 18 units of COMP3xxx courses, made up of:</p>
+<ul>
+<li>12 units from COMP3900 and COMP1720  </li>
+<li>at least 12 units from COMP3540 | COMP4350 | COMP4610 | COMP4528</li>
+<li>at most 12 units from COMP1710 | HUMN1001 | MUSI1110 | PHIL1008 </li>
+<li>at most 24 units from ARTH2181 | ARTV2059 | COMP2120 | COMP3670 | DESN2004 | DESN2008 | DESN2010 | HUMN2001 | MGMT2009 | MUSI3309 | SCOR3001 | SOCY2038 | SOCY2166</li>
+</ul>
+</blockquote>
+<p><strong>Expression:</strong></p>
+<pre><code>COMP1720 &amp; COMP3900 &amp; FILTER(12 * &lt;['COMP3_']&gt;) {
+    UNITS 36 {
+        MIN 12 * &lt;COMP3540 | COMP4350 | COMP4610 | COMP4528&gt;
+        MAX 12 * &lt;COMP1710 | HUMN1001 | MUSI1110 | PHIL1008&gt;
+        MAX 24 * &lt;ARTH2181 | ARTV2059 | COMP2120 | COMP3670 | DESN2004 | DESN2008 | DESN2010 | HUMN2001 | MGMT2009 | MUSI3309 | SCOR3001 | SOCY2038 | SOCY2166&gt;
+    }
+}
+</code></pre>
+<p><strong>Explanatory Notes</strong></p>
+<p><code>COMP3900</code> and <code>COMP1720</code> are required, and so get excluded from the <code>UNITS</code> block. Between them, they make up 12 units, so this 12 is removed
+from the 48 required, to give a <code>UNITS 36 { ... }</code>. We additionally lower the 18 units of COMP3xxx down to 12 units, because we are required
+to take <code>COMP3900</code>, which counts for 6 units.</p>
+<h2 id="ebnf">EBNF</h2>
+<p>This is <em>not</em> guaranteed to be correct, but just a sketch that may be of use.</p>
+<pre><code class="language-ebnf">(* -------------  Top-level ------------- *)
+&lt;expression&gt;        ::= &lt;or-expr&gt; ;
+
+&lt;or-expr&gt;           ::= &lt;and-expr&gt;
+                      | &lt;or-expr&gt; &quot;|&quot; &lt;and-expr&gt; ;
+
+&lt;and-expr&gt;          ::= &lt;term&gt;
+                      | &lt;and-expr&gt; &quot;&amp;&quot; &lt;term&gt; ;
+
+(* -------------  Terms / primaries ------------- *)
+&lt;term&gt;              ::= &lt;parenthesised&gt;
+                      | &lt;unit-expr&gt;
+                      | &lt;special-expr&gt;
+                      | &lt;course-term&gt;
+                      | &lt;group-expr&gt; ;
+
+&lt;parenthesised&gt;     ::= &quot;(&quot; &lt;expression&gt; &quot;)&quot; ;
+
+(* -------------  Courses, wildcards, groups ------------- *)
+&lt;course-term&gt;       ::= [ &quot;!&quot; ] [ &quot;~&quot; ] &lt;COURSE_CODE&gt;
+                      | [ &quot;!&quot; ] [ &quot;~&quot; ] &quot;[&quot; [ &quot;~&quot; ] &lt;STRING_LITERAL&gt; &quot;]&quot; ;
+
+&lt;group-expr&gt;        ::= &quot;&lt;&quot;
+                           [ &quot;1&quot; ]                       (* “stop-after-first” hint *)
+                           &lt;group-item&gt;
+                           { &quot;|&quot; &lt;group-item&gt; }
+                        &quot;&gt;&quot;
+                        [ &quot;&gt;=&quot; &lt;INTEGER&gt; ]               (* per-course minimum grade *)
+                        ;
+
+&lt;group-item&gt;        ::= &lt;course-term&gt; ;                  (* Courses and/or wildcards *)
+
+&lt;unit-expr&gt;         ::= &lt;units-prefix&gt; &lt;course-or-group&gt;
+                     | &lt;courses-default-units&gt; ;
+
+&lt;units-prefix&gt;      ::= &lt;INTEGER&gt; &quot;*&quot; ;                  (* Explicit unit count *)
+
+&lt;course-or-group&gt;   ::= &lt;course-term&gt; | &lt;group-expr&gt; ;
+
+&lt;courses-default-units&gt;
+                    ::= &lt;course-term&gt; ;                  (* Implicit units = default *)
+
+(* -------------  “UNITS n { … }” ------------- *)
+
+&lt;units-block&gt;       ::= &quot;UNITS&quot; &lt;INTEGER&gt;
+                        &quot;{&quot;
+                           &lt;minmax-clause&gt;
+                           { &lt;minmax-clause&gt; }
+                        &quot;}&quot; ;
+
+&lt;minmax-clause&gt;     ::= ( &quot;MIN&quot; | &quot;MAX&quot; )
+                        &lt;INTEGER&gt; &quot;*&quot;
+                        &lt;group-expr&gt; ;
+
+(* -------------  Filters and WEAK ------------- *)
+&lt;filter-expr&gt;       ::= &quot;FILTER&quot;
+                        &quot;(&quot;  &lt;expression&gt; &quot;)&quot;            (* WEAK filter test        *)
+                        &quot;{&quot;
+                            &lt;expression&gt;                 (* Main counted expression *)
+                        &quot;}&quot; ;
+
+&lt;weak-expr&gt;         ::= &quot;WEAK&quot; &quot;(&quot; &lt;expression&gt; &quot;)&quot; ;
+
+(* -------------  Then / After ------------- *)
+&lt;then-after-expr&gt;   ::= ( &quot;THEN&quot; | &quot;AFTER&quot; )
+                        &lt;COURSE_CODE&gt;
+                        [ &quot;YEAR&quot; &lt;INTEGER&gt; ]             (* fixed year, optional    *)
+                        [ &lt;STRING_LITERAL&gt; ]             (* fixed semester, optional*)
+
+(* -------------  Other atomic special forms ------------- *)
+&lt;grade-expr&gt;        ::= &lt;COURSE_CODE&gt; &quot;&gt;=&quot; &lt;INTEGER&gt; ;
+
+&lt;gpa-expr&gt;          ::= &quot;GPA&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt;            (* or ×10 for halves       *)
+                      | &quot;GPA&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt;.&lt;INTEGER&gt; ;
+
+&lt;wam-expr&gt;          ::= &quot;WAM&quot;  &quot;&gt;=&quot; &lt;INTEGER&gt; ;
+
+&lt;year-expr&gt;         ::= &quot;YEAR&quot; &lt;INTEGER&gt; [ &quot;+&quot; ] ;
+
+&lt;degree-expr&gt;       ::= &quot;DEG&quot; &lt;STRING_LITERAL&gt; ;
+
+&lt;permission-expr&gt;   ::= &quot;PC&quot;  [ &lt;STRING_LITERAL&gt; ] ;
+
+&lt;subst-expr&gt;        ::= &quot;SUBST&quot;
+                        &lt;string-list&gt; ;
+
+&lt;select-expr&gt;       ::= &quot;SELECT&quot;
+                        &lt;STRING_LITERAL&gt;                 (* selector id            *)
+                        &lt;string-list&gt; ;                  (* same list syntax       *)
+
+&lt;string-list&gt;       ::= &lt;STRING_LITERAL&gt;
+                        { &quot;,&quot; &lt;STRING_LITERAL&gt; } ;
+
+&lt;constant&gt;          ::= &quot;TRUE&quot; | &quot;FALSE&quot; ;
+
+&lt;other-expr&gt;        ::= &quot;OTHER&quot; &lt;STRING_LITERAL&gt; ;       (* school-specific hook   *)
+
+(* -------------  Catch-all for any primary that isn’t     *)
+&lt;special-expr&gt;      ::= &lt;units-block&gt;
+                     | &lt;filter-expr&gt;
+                     | &lt;weak-expr&gt;
+                     | &lt;then-after-expr&gt;
+                     | &lt;grade-expr&gt;
+                     | &lt;gpa-expr&gt;
+                     | &lt;wam-expr&gt;
+                     | &lt;year-expr&gt;
+                     | &lt;degree-expr&gt;
+                     | &lt;permission-expr&gt;
+                     | &lt;subst-expr&gt;
+                     | &lt;select-expr&gt;
+                     | &lt;constant&gt;
+                     | &lt;other-expr&gt; ;
+
+(* -------------  Lexical tokens (regex sketches) -------- *)
+&lt;COURSE_CODE&gt;       ::= /[A-Z]{4}\d{4}/ ;
+&lt;STRING_LITERAL&gt;    ::= '&quot;' ... '&quot;'                       (* any printable except &quot; *)
+&lt;INTEGER&gt;           ::= /0|[1-9]\d*/ ;
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "content.code.copy", "content.tabs.link", "content.action.edit", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
